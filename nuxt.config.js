@@ -13,18 +13,23 @@ export default {
       lang: 'sl',
     },
     meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Osebna stran študenta računalništva, ki se s programiranjem ukvarja 25 ur na dan'
+        content:
+          'Osebna stran študenta računalništva, ki se s programiranjem ukvarja 25 ur na dan',
       },
     ],
     link: [
-      {rel: 'stylesheet', href: 'https://unpkg.com/aos@next/dist/aos.css'},
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat&family=Fuggles&display=swap'},
+      { rel: 'stylesheet', href: 'https://unpkg.com/aos@next/dist/aos.css' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Caveat&family=Fuggles&display=swap',
+      },
     ],
   },
 
@@ -41,7 +46,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -57,7 +62,21 @@ export default {
         confirmButtonColor: '#19647e',
       },
     ],
+    '@nuxtjs/strapi',
+    '@nuxtjs/markdownit',
   ],
+
+  strapi: {
+    entities: ['Projects'],
+    url: 'http://10.10.10.100:1337',
+  },
+
+  markdownit: {
+    runtime: true, // Support `$md()`
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -66,11 +85,9 @@ export default {
   build: {},
 
   env: {
-    backendUrl: process.env.NUXT_ENV_BACKEND_URL || 'http://localhost:3000/api/',
-    backendV2Url: process.env.NUXT_ENV_BACKEND_V2_URL || 'http://localhost:8080/',
-    /* backendV2Url: 'http://localhost:8080/', */
-    ghostUrl: process.env.NUXT_ENV_GHOST_URL || "http://internal.lan:4000",
-    ghostKey: process.env.NUXT_ENV_GHOST_KEY || "e2dcedf9073da92a9021ecafdc"
+    ghostUrl: process.env.NUXT_ENV_GHOST_URL || 'http://10.10.10.100:4000',
+    ghostKey: process.env.NUXT_ENV_GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
+    strapiUrl: process.env.NUXT_ENV_STRAPI_URL || 'https://10.10.10.100:1337'
   },
 
   googleAnalytics: {
@@ -78,7 +95,7 @@ export default {
   },
   publicRuntimeConfig: {
     googleAnalytics: {
-      id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID
-    }
-  }
+      id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID,
+    },
+  },
 }

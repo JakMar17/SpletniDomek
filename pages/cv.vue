@@ -7,12 +7,13 @@
     <div style="padding: 3vh 5vw 0 5vw">
       <div class="has-text-centered" style="margin-bottom: 3vh">
         <h1 class="title is-3">Jakob Marušič</h1>
-        <h2 class="subtitle is-5">dipl. inž. rač. in inf. (UNI)</h2>
+        <h2 class="subtitle is-5">gimnazijski maturant</h2>
+        <!-- <h2 class="subtitle is-5">dipl. inž. rač. in inf. (UNI)</h2> -->
       </div>
 
       <div class="columns">
         <div class="column">
-          <div class="box">
+          <div class="box" style="height: 100%">
             <h2 class="subtitle is-4 has-text-centered">Kontakt</h2>
             <div>
               <a
@@ -36,7 +37,7 @@
                 GitHub
               </a>
             </div>
-            <div>
+            <!-- <div>
               <a
                 href="https://www.linkedin.com/in/jakob-maru%C5%A1i%C4%8D-2060461b4/"
                 target="_blank"
@@ -44,7 +45,7 @@
                 <b-icon icon="linkedin" style="margin-right: 1vw" />
                 LinkedIn
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="column">
@@ -169,24 +170,24 @@ export const school = [
     what: 'Gimnazija in zdravstvena šola',
     where: 'Šolski center Nova Gorica',
     description:
-      'Program tehniške gimnazije sem vsa leta zaključil s prav dobrim uspehom',
+      'Program tehniške gimnazije sem vsa leta zaključil s prav dobrim uspehom. Zaključek šolanja z opravljeno splošno maturo in pridobljenim nazivom gimnazijski maturant.',
   },
 ]
 
 export const work = [
   {
-    year: '2018 - danes',
-    what: 'Upravljanje spletne strani in spletne podobe podjetja',
-    where: 'Špacapanova hiša',
-    description:
-      'Delo vključuje oblikovanje spletnih vsebin (Photoshop, Indesign, Illustrator) za socialna omrežja in oblikovanje spletne strani ter njeno posodabljanje (Wordpress).',
-  },
-  {
-    year: '2019',
-    what: 'Razvoj poslovne informatike (poletna praksa)',
+    year: '2021',
+    what: 'IT podpora (poletna praksa)',
     where: 'Mahle d.o.o.',
     description:
-      'Delo je vključevalo razvoj novih in posodabljanje obstoječih storitev v intranetu podjetja. Uporabljene tehnologije: HTML, CSS, JS, Java, Oracle podatkovna baza.',
+      'Delo je vljučevalo skrb za računalniške sisteme znotraj mreže ter pomoč uporabnikom.',
+  },
+  {
+    year: '2020 - 2021',
+    what: 'Razvoj programske opreme in vzdrževanje poslovne informatike',
+    where: 'Omega Consult d.o.o.',
+    description:
+      'Delo vključuje razvoj novih in posodabljanje obstoječih informacijskih storitev za naročnike. Uporabljene tehnologije: HTML, CSS, JS (Angular), Java, Oracle in MySQL podatkovna baza. Razvoj produktov Gradbišča za DRSI in CRV izpiti za AVP.',
   },
   {
     year: '2020',
@@ -196,11 +197,18 @@ export const work = [
       'Namen projekta je postavitev platforme za množičen interaktiven tečaj nemenjen osnovno in srednješolcem, ki si želijo spoznati orodja in uporabno vrednost mikrokontrolerjev.',
   },
   {
-    year: '2020 - 2021',
-    what: 'Razvoj programske opreme in vzdrževanje poslovne informatike',
-    where: 'Omega Consult d.o.o.',
+    year: '2019',
+    what: 'Razvoj poslovne informatike (poletna praksa)',
+    where: 'Mahle d.o.o.',
     description:
-      'Delo vključuje razvoj novih in posodabljanje obstoječih informacijskih storitev za naročnike. Uporabljene tehnologije: HTML, CSS, JS (Angular), Java, Oracle in MySQL podatkovna baza. Razvoj produktov Gradbišča za DRSI in CRV izpiti za AVP.',
+      'Delo je vključevalo razvoj novih in posodabljanje obstoječih storitev v intranetu podjetja. Uporabljene tehnologije: HTML, CSS, JS, Java, Oracle podatkovna baza.',
+  },
+  {
+    year: '2018 - danes',
+    what: 'Upravljanje spletne strani in spletne podobe podjetja',
+    where: 'Špacapanova hiša',
+    description:
+      'Delo vključuje oblikovanje spletnih vsebin (Photoshop, Indesign, Illustrator) za socialna omrežja in oblikovanje spletne strani ter njeno posodabljanje (Wordpress).',
   },
 ]
 

@@ -44,11 +44,11 @@
       </div>
     </div>
 
-    <p class="centered-margin">
+    <!-- <p class="centered-margin">
       Študent računalništva, ki ga je tehnologija navduševala že od malih nog.
       Danes programer full-stack spletnih aplikacij z namemom olajšanja
       življenja sebi in drugim.
-    </p>
+    </p> -->
 
     <div class="tech-stack">
       <div class="column">
@@ -63,11 +63,11 @@
       </div>
       <div class="column">
         <b-icon size="is-large" icon="language-java" style="color: blue" />
-        <b-icon size="is-large" icon="language-python" style="color: #f3d602" />
-        <b-icon size="is-large" icon="nodejs" style="color: green" />
+        <!-- <b-icon size="is-large" icon="language-python" style="color: #f3d602" /> -->
+        <b-icon size="is-large" icon="nodejs" style="color: #f3d602" />
         <h2>Backend</h2>
         <p class="centered-margin">
-          Razvoj zalednih storitev v SpringBoot (Java & Kotlin), Pythonu in
+          Razvoj zalednih storitev v SpringBoot (Java & Kotlin) in
           NodeJS
         </p>
       </div>
@@ -86,29 +86,31 @@
     </h2>
     <hr />
     <div class="container" style="padding-bottom: 8vh">
-      <div class="centered-columns">
-        <div class="column">
-          <a
-            class="box"
-            href="https://play.google.com/store/apps/details?id=si.aptsystems.jakmar17.vreme.vreme&hl=en&gl=US"
-            target="_blank"
+      <div class="columns is-centered is-vcentered is-multiline">
+        <div v-for="(item, i) of projects" :key="i" class="column is-4">
+          <nuxt-link
+            :to="'project/' + item.project_name"
+            class="box h-100"
           >
             <div class="columns">
               <div class="column">
-                <h3 class="title is-4">MarelaApp</h3>
+                <h3 class="title is-4">{{item.project_name}}</h3>
               </div>
               <div class="column is-narrow">
-                <b-icon icon="cellphone" />
-                <b-icon icon="language-java" />
+                <b-icon v-for="(stack, ii) of item.stack" :key="ii" :icon="stack.icon" />
               </div>
             </div>
             <p>
-              Android aplikacija, ki prikazuje trenutne vremenske razmere in
-              napovedi za Slovenijo in tujino.
+              {{item.description_short}}
             </p>
-          </a>
+          </nuxt-link>
         </div>
+      </div>
+    </div>
 
+    <!-- <div class="container" style="padding-bottom: 8vh">
+
+      <div class="centered-columns">
         <div class="column container">
           <a class="box" href="https://fb.marela.team/" target="_blank">
             <div class="columns">
@@ -126,6 +128,24 @@
             </p>
           </a>
         </div>
+
+        <div class="column">
+          <a class="box" href="https://tracking-corona.web.app" target="_blank">
+            <div class="columns">
+              <div class="column">
+                <h3 class="title is-4">CoronaTracker</h3>
+              </div>
+              <div class="column is-narrow">
+                <b-icon icon="angular" />
+              </div>
+            </div>
+            <p>
+              Aplikacija za spremljanje števila potrjenih primerov covid-19 po
+              svetu in po državah.
+            </p>
+          </a>
+        </div>
+
         <div class="column">
           <a class="box" href="https://sd-lj.com/" target="_blank">
             <div class="columns">
@@ -145,9 +165,35 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
 </template>
+
+<script>
+export default {
+  data() {
+    return {projects: {}}
+  },
+  async asyncData({$strapi}) {
+    let projects = {}
+    try {
+      projects = await $strapi.find('projects', 'exposed=true')
+    } catch (error) {
+      console.error(error)
+    }
+
+    return {projects}
+  },
+  async mounted() {
+    try {
+      this.projects = await this.$strapi.find('projects', 'exposed=true')
+    } catch (error) {
+      console.error(error)
+    }
+
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
