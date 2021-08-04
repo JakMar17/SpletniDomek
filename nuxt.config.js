@@ -98,4 +98,9 @@ export default {
     ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
     strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/'
   },
+  env: {
+    ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
+    ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
+    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337'
+  },
 }
