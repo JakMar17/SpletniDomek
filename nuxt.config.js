@@ -93,9 +93,9 @@ export default {
       id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID,
     },
   },
-  private: {
+  privateRuntimeConfig: {
     ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
     ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
-    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337'
+    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/'
   },
 }

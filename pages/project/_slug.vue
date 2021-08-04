@@ -26,7 +26,7 @@
         <b-carousel-item class="is-center is-centered" v-for="(item, i) in project.pics" :key="i">
           <a class="image has-text-centered is-center is-centered">
             <img
-              :src="'http://10.10.10.100:1337' + item.url"
+              :src="$config.strapiUrl + item.url"
               class="is-centered is-vcentered"
               style="max-height: 60vh; width: auto; margin-left: auto; margin-right:auto"
             />
@@ -140,7 +140,7 @@ export default {
   },
   methods: {
     getImgUrl(value) {
-      return 'http://10.10.10.100:1337' + this.project.pics[value].url
+      return this.$config.strapiUrl + this.project.pics[value].url
     },
     switchGallery(value) {
       this.gallery = value
