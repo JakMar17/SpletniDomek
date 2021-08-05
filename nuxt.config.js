@@ -68,7 +68,7 @@ export default {
 
   strapi: {
     entities: ['Projects'],
-    url: 'http://10.10.10.100:1337',
+    url: process.env.STRAPI_URL,
   },
 
   markdownit: {
@@ -84,11 +84,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-
   googleAnalytics: {
     id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
+    ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
+    ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
+    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/',
     googleAnalytics: {
       id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID,
     },
@@ -96,11 +98,11 @@ export default {
   privateRuntimeConfig: {
     ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
     ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
-    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/'
+    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/',
   },
   env: {
     ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
     ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
-    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337'
+    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337',
   },
 }
