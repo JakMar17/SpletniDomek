@@ -26,7 +26,7 @@
         <b-carousel-item class="is-center is-centered" v-for="(item, i) in project.pics" :key="i">
           <a class="image has-text-centered is-center is-centered">
             <img
-              :src="$config.strapiUrl + item.url"
+              :src="getImgUrl(i)"
               class="is-centered is-vcentered"
               style="max-height: 60vh; width: auto; margin-left: auto; margin-right:auto"
             />
