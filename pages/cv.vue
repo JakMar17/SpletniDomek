@@ -1,5 +1,5 @@
 <template>
-  <main class="container" style="padding-top: 2vh; padding-bottom: 4vh">
+  <main class="container" style="padding: 2vh 1vw 4vh 1vw">
     <nuxt-link to="/">
       <b-icon icon="arrow-left"></b-icon>
     </nuxt-link>
@@ -7,8 +7,7 @@
     <div style="padding: 3vh 5vw 0 5vw">
       <div class="has-text-centered" style="margin-bottom: 3vh">
         <h1 class="title is-3">Jakob Marušič</h1>
-        <h2 class="subtitle is-5">gimnazijski maturant</h2>
-        <!-- <h2 class="subtitle is-5">dipl. inž. rač. in inf. (UNI)</h2> -->
+        <h2 class="subtitle is-5">dipl. inž. rač. in inf. (UN)</h2>
       </div>
 
       <div class="columns">
@@ -105,32 +104,41 @@
       <div style="margin-top: 3vh"></div>
     </div>
 
-    <h1 id="school" class="title is-3 has-text-primary">Izobrazba</h1>
-    <div style="margin: 0 2vw 6vh 2vw">
+    <h1 id="school" class="cv-title">Izobrazba</h1>
+    <div class="cv-container">
       <CvExperienceCard
-        v-for="s of school"
-        :key="s.year"
-        :year="s.year"
-        :what="s.what"
-        :where="s.where"
+        v-for="s of education"
+        :key="s.title"
+        :year="s.startDate + ' - ' + s.endDate"
+        :what="s.title"
+        :where="s.subtitle"
         :description="s.description"
       ></CvExperienceCard>
     </div>
 
-    <h1 id="work" class="title is-3 has-text-primary">Delovne izkušnje</h1>
-    <div style="margin: 0 2vw 4vh 2vw">
+    <h1 id="work" class="cv-title">Delovne izkušnje</h1>
+    <div class="cv-container">
       <CvExperienceCard
         v-for="w of work"
-        :key="w.what"
-        :year="w.year"
-        :what="w.what"
-        :where="w.where"
+        :key="w.title"
+        :year="w.date"
+        :what="w.title"
+        :where="w.company"
         :description="w.description"
       ></CvExperienceCard>
     </div>
 
-    <h1 id="projects" class="title is-3 has-text-primary">Osebni projekti</h1>
-    <div style="margin: 0 2vw 4vh 2vw">
+    <h1 id="projects" class="cv-title">Osebni projekti</h1>
+    <div class="cv-container">
+      <!-- <CvExperienceCard
+        v-for="w of projects"
+        :key="w.id"
+        :year="w.year"
+        :what="w.project_name"
+        :where="w.where"
+        :description="w.description_short"
+      ></CvExperienceCard> -->¸
+
       <CvExperienceCard
         v-for="w of projects"
         :key="w.what"
@@ -141,77 +149,45 @@
       ></CvExperienceCard>
     </div>
 
-    <h1 id="knowledge" class="title is-3 has-text-primary">Znanja</h1>
-    <div style="margin: 0 2vw 4vh 2vw">
-      <CvExperienceCard
+    <h1 id="knowledge" class="cv-title">Znanja</h1>
+    <div class="cv-container">
+      <!-- <CvExperienceCard
         v-for="w of knowledge"
         :key="w.what"
         :year="w.year"
         :what="w.what"
         :where="w.where"
         :description="w.description"
-      ></CvExperienceCard>
+      ></CvExperienceCard> -->
+      <div class="box">
+        <p>
+          Največ znanja imam iz razvoja spletnih (fullstack) aplikacij. Na tem
+          področju imam poleg svojih lastnih projektov (MarelaBudget, spletna
+          aplikacija v okviru diplomske naloge...) tudi približno leto dni
+          izkušenj v okviru študentskega dela. Večina apliakcij je razvita z
+          uporabo ogrodja Angular na čelnem delu in ogrodja Spring Boot na
+          zalednem delu sistema. V zadnjem času preizkušam NuxtJS za razvoj JAM
+          stack aplikacij.
+        </p>
+        <p>
+          Poleg razvoja zalednih in čelnih aplikacij imam izkušnje z uporabo
+          relacijskih baz. V lastnih projektih povečini uporablja baze MySQL,
+          MariaDB ali PostgreSQL, v okviru študentskih del pa sem razvijal na
+          bazi Oracle (vključno z indeksi, procedurami in ostalimi naprednimi
+          funkcijami).
+        </p>
+        <p style="margin: 0">
+          Obenem razvijam mobilne aplikacije (MarelaApp) v Flutter-ju, v
+          preteklosti pa tudi v ogrodju Ionic. Manjše projekte sem razvijal tudi
+          v tehnologijah kot so: Python, NestJS, bash...
+        </p>
+      </div>
     </div>
   </main>
 </template>
 
 
 <script>
-export const school = [
-  {
-    year: '2017 - danes',
-    what: 'Fakulteta za računalništvo in informatiko',
-    where: 'Univerza v Ljubljani',
-    description:
-      'Študent tretjega letnika dodiplomskega univerzitetnega programa računalništvo in informatiko.',
-  },
-  {
-    year: '2013 - 2017',
-    what: 'Gimnazija in zdravstvena šola',
-    where: 'Šolski center Nova Gorica',
-    description:
-      'Program tehniške gimnazije sem vsa leta zaključil s prav dobrim uspehom. Zaključek šolanja z opravljeno splošno maturo in pridobljenim nazivom gimnazijski maturant.',
-  },
-]
-
-export const work = [
-  {
-    year: '2021',
-    what: 'IT podpora (poletna praksa)',
-    where: 'Mahle d.o.o.',
-    description:
-      'Delo je vljučevalo skrb za računalniške sisteme znotraj mreže ter pomoč uporabnikom.',
-  },
-  {
-    year: '2020 - 2021',
-    what: 'Razvoj programske opreme in vzdrževanje poslovne informatike',
-    where: 'Omega Consult d.o.o.',
-    description:
-      'Delo vključuje razvoj novih in posodabljanje obstoječih informacijskih storitev za naročnike. Uporabljene tehnologije: HTML, CSS, JS (Angular), Java, Oracle in MySQL podatkovna baza. Razvoj produktov Gradbišča za DRSI in CRV izpiti za AVP.',
-  },
-  {
-    year: '2020',
-    what: 'iSure ŠIPK projekt',
-    where: 'Varni na internetu & FRI',
-    description:
-      'Namen projekta je postavitev platforme za množičen interaktiven tečaj nemenjen osnovno in srednješolcem, ki si želijo spoznati orodja in uporabno vrednost mikrokontrolerjev.',
-  },
-  {
-    year: '2019',
-    what: 'Razvoj poslovne informatike (poletna praksa)',
-    where: 'Mahle d.o.o.',
-    description:
-      'Delo je vključevalo razvoj novih in posodabljanje obstoječih storitev v intranetu podjetja. Uporabljene tehnologije: HTML, CSS, JS, Java, Oracle podatkovna baza.',
-  },
-  {
-    year: '2018 - danes',
-    what: 'Upravljanje spletne strani in spletne podobe podjetja',
-    where: 'Špacapanova hiša',
-    description:
-      'Delo vključuje oblikovanje spletnih vsebin (Photoshop, Indesign, Illustrator) za socialna omrežja in oblikovanje spletne strani ter njeno posodabljanje (Wordpress).',
-  },
-]
-
 export const projects = [
   {
     year: '2021 (v razvoju)',
@@ -322,12 +298,54 @@ export default {
   created() {
     this.knowledge = knowledge
     this.projects = projects
-    this.work = work
-    this.school = school
+  },
+  data() {
+    return { projects: {} }
+  },
+  async asyncData({ $strapi }) {
+    // let projects = {}
+    let education = {}
+    let work = {}
+    try {
+      // projects = await $strapi.find('projects')
+      this.work = await this.$strapi.find('cv-works', '_sort=id:DESC')
+      education = await $strapi.find('cvs', '_sort=id:DESC')
+    } catch (error) {
+      console.error(error)
+    }
+
+    console.log(work)
+
+    return { projects, education, work }
+  },
+  async mounted() {
+    try {
+      // this.projects = await this.$strapi.find('projects')
+      this.work = await this.$strapi.find('cv-works', '_sort=id:DESC')
+      this.education = await this.$strapi.find('cvs', '_sort=id:DESC')
+    } catch (error) {
+      console.error(error)
+    }
+
+    console.log(this.work)
   },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
+
+p {
+  margin-bottom: 1vh;
+}
+
+.cv-title {
+  @extend .title, .is-3, .has-text-primary;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.cv-container {
+  margin: 0 2vw 4vh 2vw;
+}
 </style>

@@ -1,18 +1,13 @@
 <template>
   <div class="custom-box">
-    <h3 class="subtitle is-6">{{ year }}</h3>
-    <h2 class="columns-no-padding is-vcentered">
-      <div class="column is-narrow">
-        <div class="title is-5">
-          {{ what }}
-        </div>
-      </div>
-      <div class="column is-narrow">
-        <div class="subtitle is-5">
-          {{ where }}
-        </div>
-      </div>
+    <h4 class="subtitle is-6" style="padding-bottom: 1vh">{{ year }}</h4>
+
+    <h2 class="title is-5">
+      {{ what }}
     </h2>
+    <h3 class="subtitle is-5">
+      {{ where }}
+    </h3>
     <p>
       {{ description }}
     </p>

@@ -1,17 +1,12 @@
 <template>
   <main class="container" style="padding-top: 2vh">
-    <div class="columns is-vcentered">
-      <div class="column">
-        <nuxt-link to="/blog">
-          <b-icon icon="arrow-left"></b-icon>
-        </nuxt-link>
-      </div>
-      <div class="column"></div>
-      <div class="column is-narrow">
-        <nuxt-link to="/">
-          <b-icon icon="home"></b-icon>
-        </nuxt-link>
-      </div>
+    <div class="buttons">
+      <nuxt-link style="margin-right: 1vw" to="/blog">
+        <b-icon icon="arrow-left"></b-icon>
+      </nuxt-link>
+      <nuxt-link to="/">
+        <b-icon icon="home"></b-icon>
+      </nuxt-link>
     </div>
     <div class="columns" style="padding-top: 3vh">
       <div class="column is-1 is-2-fullhd"></div>

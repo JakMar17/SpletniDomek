@@ -1,61 +1,28 @@
 <template>
-  <nav
-    class="navbar has-background-info"
-    role="navigation"
-    aria-label="main navigation"
-  >
-    <div class="navbar-brand">
-      <nuxt-link to="/" class="link is-info navbar-item">
+  <nav style="background-color: #f4f4f4;" class="level navbar has-background-transparent">
+<!--     <p class="level-item has-text-centered">
+      <nuxt-link to="/zahteve" class="link is-info">Zahteve</nuxt-link>
+    </p>
+    <p class="level-item has-text-centered">
+      <nuxt-link to="/izkusnje" class="link is-info">Izkušnje</nuxt-link>
+    </p> -->
+    <p class="level-item has-text-centered">
+      <nuxt-link to="/" class="navbar-item">
         <img
           class="is-centered image"
           src="~assets/images/avatar_cropped.png"
         />
         <p style="margin-left: 1vw">Jakob</p>
       </nuxt-link>
-
-      <a
-        role="button"
-        class="navbar-burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
+    </p>
+<!--     <p class="level-item has-text-centered">
+      <nuxt-link to="/nasvidenje-mi-smo-sdl-2021" class="link is-info"
+        >Blog</nuxt-link
       >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <nuxt-link to="cv" class="link navbar-item">Življenjepis</nuxt-link>
-        <a class="navbar-item"> Blog </a>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a
-              href="https://github.com/jakmar17"
-              target="_blank"
-              class="end-icon"
-            >
-              <b-icon icon="github"></b-icon>
-            </a>
-            <a
-              href="https://marela.team"
-              target="_blank"
-              class="end-icon"
-            >
-              <b-icon icon="umbrella"></b-icon>
-            </a>
-            <!-- <a class="end-icon">
-              <b-icon icon="magnify"></b-icon>
-            </a> -->
-          </div>
-        </div>
-      </div>
-    </div>
+    </p>
+    <p class="level-item has-text-centered">
+      <nuxt-link to="/kontakt">Kontakt</nuxt-link>
+    </p> -->
   </nav>
 </template>
 
