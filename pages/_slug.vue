@@ -47,11 +47,13 @@ import { getSinglePost } from '../api/posts'
 export default {
   async asyncData({ params }) {
     const post = await getSinglePost(params.slug)
+    post.html = post.html.replaceAll("http://ghost", "https://ghost")
     return { post: post, slug: params.slug }
   },
   mounted() {
     getSinglePost(this.post.slug).then((data) => {
       this.post = data
+      this.post.html = this.post.html.replaceAll("http://ghost", "https://ghost")
       console.log(data)
     })
   },
