@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt-link
-      :to="{ path: post.slug }"
+      :to="{ path: '/' + post.slug }"
       class="columns box element"
       style="margin-bottom: 5vh"
     >
