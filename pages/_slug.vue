@@ -67,7 +67,7 @@ export default {
       meta: [
         ...createSEOMeta({
           description: this.post.custom_excerpt,
-          url: 'https://jakob.marela.team/blog/' + this.post.slug,
+          url: 'https://jakob.marela.team/' + this.post.slug,
           image: this.post.feature_image,
         }),
       ],
