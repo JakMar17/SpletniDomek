@@ -66,6 +66,7 @@ export default {
       title: this.post.title,
       meta: [
         ...createSEOMeta({
+          title: this.post.title,
           description: this.post.custom_excerpt,
           url: 'https://jakob.marela.team/' + this.post.slug,
           image: this.post.feature_image,
