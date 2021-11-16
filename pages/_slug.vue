@@ -43,19 +43,35 @@
 
 <script>
 import { getSinglePost } from '../api/posts'
+import { createSEOMeta } from '/utils/seo'
 
 export default {
   async asyncData({ params }) {
     const post = await getSinglePost(params.slug)
-    post.html = post.html.replaceAll("http://ghost", "https://ghost")
+    post.html = post.html.replaceAll('http://ghost', 'https://ghost')
     return { post: post, slug: params.slug }
   },
   mounted() {
     getSinglePost(this.post.slug).then((data) => {
       this.post = data
-      this.post.html = this.post.html.replaceAll("http://ghost", "https://ghost")
+      this.post.html = this.post.html.replaceAll(
+        'http://ghost',
+        'https://ghost'
+      )
       console.log(data)
     })
+  },
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        ...createSEOMeta({
+          description: this.post.custom_excerpt,
+          url: 'https://jakob.marela.team/blog/' + this.post.slug,
+          image: this.post.feature_image,
+        }),
+      ],
+    }
   },
 }
 </script>
