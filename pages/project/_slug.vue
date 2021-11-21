@@ -172,7 +172,7 @@ export default {
           url: 'https://jakob.marela.team/project/' + this.project.project_name,
           image:
             this.project.pics != null && this.project.pics.length > 0
-              ? getImgUrl(this.project.pics[0])
+              ? this.$config.strapiUrl + this.project.pics[0].url
               : 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
         }),
       ],
