@@ -170,7 +170,10 @@ export default {
           title: this.project.project_name,
           description: this.project.description,
           url: 'https://jakob.marela.team/project/' + this.project.project_name,
-          image: 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
+          image:
+            this.project.pics != null && this.project.pics.length > 0
+              ? getImgUrl(this.project.pics[0])
+              : 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
         }),
       ],
     }

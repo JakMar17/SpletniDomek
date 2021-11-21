@@ -10,7 +10,7 @@ export const createSEOMeta = (data) => [
   {
     hid: 'og:url',
     property: 'og:url',
-    content: data.url,
+    content: data.url || 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
   },
   {
     hid: 'twitter:card',

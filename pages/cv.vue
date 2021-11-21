@@ -338,7 +338,7 @@ export default {
         ...createSEOMeta({
           title: 'Jakobov življenjepis',
           description:
-            'V letu 2021 diplomirani inženir rač. in inf. (UN) sem večino izkušenj pridobil bodisi iz lastnih projektov, bodisi študentskega dela. Največ izkušenj na realnih projektih imam z Javo (Spring Boot) in Angular.s',
+            'V letu 2021 diplomirani inženir rač. in inf. (UN) sem večino izkušenj pridobil bodisi iz lastnih projektov, bodisi študentskega dela. Največ izkušenj na realnih projektih imam z Javo (Spring Boot) in Angularjem.',
           url: 'https://jakob.marela.team/cv',
           image: 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
         }),
