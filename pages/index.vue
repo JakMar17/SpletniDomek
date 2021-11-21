@@ -193,7 +193,7 @@ export default {
   },
   head() {
     return {
-      title: this.post.title,
+      title: "Jakobov spletni domek",
       meta: [
         ...createSEOMeta({
           title: 'Jakobov spletni domek',
