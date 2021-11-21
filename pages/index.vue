@@ -67,8 +67,7 @@
         <b-icon size="is-large" icon="nodejs" style="color: #f3d602" />
         <h2>Backend</h2>
         <p class="centered-margin">
-          Razvoj zalednih storitev v SpringBoot (Java & Kotlin) in
-          NodeJS
+          Razvoj zalednih storitev v SpringBoot (Java & Kotlin) in NodeJS
         </p>
       </div>
       <div class="column">
@@ -88,20 +87,21 @@
     <div class="container" style="padding-bottom: 8vh">
       <div class="columns is-centered is-vcentered is-multiline">
         <div v-for="(item, i) of projects" :key="i" class="column is-4">
-          <nuxt-link
-            :to="'project/' + item.project_name"
-            class="box h-100"
-          >
+          <nuxt-link :to="'project/' + item.project_name" class="box h-100">
             <div class="columns">
               <div class="column">
-                <h3 class="title is-4">{{item.project_name}}</h3>
+                <h3 class="title is-4">{{ item.project_name }}</h3>
               </div>
               <div class="column is-narrow">
-                <b-icon v-for="(stack, ii) of item.stack" :key="ii" :icon="stack.icon" />
+                <b-icon
+                  v-for="(stack, ii) of item.stack"
+                  :key="ii"
+                  :icon="stack.icon"
+                />
               </div>
             </div>
             <p>
-              {{item.description_short}}
+              {{ item.description_short }}
             </p>
           </nuxt-link>
         </div>
@@ -172,9 +172,9 @@
 <script>
 export default {
   data() {
-    return {projects: {}}
+    return { projects: {} }
   },
-  async asyncData({$strapi}) {
+  async asyncData({ $strapi }) {
     let projects = {}
     try {
       projects = await $strapi.find('projects', 'exposed=true')
@@ -182,7 +182,7 @@ export default {
       console.error(error)
     }
 
-    return {projects}
+    return { projects }
   },
   async mounted() {
     try {
@@ -190,7 +190,20 @@ export default {
     } catch (error) {
       console.error(error)
     }
-
+  },
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        ...createSEOMeta({
+          title: 'Jakobov spletni domek',
+          description:
+            'Jakob je programer. Vsaj želi si biti. To je Jakobov spletni domek, pa tudi Jakobova spletna oglasna deska in Jakobov življenjepis in Jakobov blog in Jakobov projekt.',
+          url: 'https://jakob.marela.team/',
+          image: 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
+        }),
+      ],
+    }
   },
 }
 </script>
