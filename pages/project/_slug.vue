@@ -16,19 +16,28 @@
       </div>
     </div>
 
-    <div class="container ">
+    <div class="container">
       <b-carousel
         :autoplay="false"
         :indicator-inside="false"
         :overlay="gallery"
         @click="switchGallery(true)"
       >
-        <b-carousel-item class="is-center is-centered" v-for="(item, i) in project.pics" :key="i">
+        <b-carousel-item
+          class="is-center is-centered"
+          v-for="(item, i) in project.pics"
+          :key="i"
+        >
           <a class="image has-text-centered is-center is-centered">
             <img
               :src="getImgUrl(i)"
               class="is-centered is-vcentered"
-              style="max-height: 60vh; width: auto; margin-left: auto; margin-right:auto"
+              style="
+                max-height: 60vh;
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+              "
             />
           </a>
         </b-carousel-item>
@@ -111,6 +120,8 @@
 
 
 <script>
+import { createSEOMeta } from '/utils/seo'
+
 export default {
   data() {
     return {
@@ -150,6 +161,19 @@ export default {
         return document.documentElement.classList.remove('is-clipped')
       }
     },
+  },
+  head() {
+    return {
+      title: this.project.project_name,
+      meta: [
+        ...createSEOMeta({
+          title: this.project.project_name,
+          description: this.project.description,
+          url: 'https://jakob.marela.team/project/' + this.project.project_name,
+          image: 'https://jakob.marela.team/_nuxt/img/avatar.127b104.png',
+        }),
+      ],
+    }
   },
 }
 </script>

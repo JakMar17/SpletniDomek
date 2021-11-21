@@ -170,6 +170,9 @@
 </template>
 
 <script>
+import { createSEOMeta } from '/utils/seo'
+
+
 export default {
   data() {
     return { projects: {} }
