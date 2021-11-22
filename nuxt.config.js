@@ -20,7 +20,7 @@ export default {
         name: 'description',
         content:
           'Osebna stran študenta računalništva, ki se s programiranjem ukvarja 25 ur na dan',
-      },
+      }
     ],
     link: [
       { rel: 'stylesheet', href: 'https://unpkg.com/aos@next/dist/aos.css' },
@@ -31,6 +31,13 @@ export default {
           'https://fonts.googleapis.com/css2?family=Caveat&family=Fuggles&display=swap',
       },
     ],
+    script: [
+      {
+        defer: true,
+        src: "https://plausible.sven.marela.team/js/plausible.js",
+        "data-domain": "jakob.marela.team"
+      }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
