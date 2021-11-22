@@ -16,12 +16,12 @@
             <h2 class="subtitle is-4 has-text-centered">Kontakt</h2>
             <div>
               <a
-                href="mailto:jakob@marela.team"
+                href="mailto:jakob.marusic17@gmail.com"
                 target="_blank"
                 style="margin-right: 1vw"
               >
                 <b-icon icon="email-outline" style="margin-right: 1vw" />
-                jakob {at} marela.team
+                jakob.marusic17 {at} gmail.com
               </a>
             </div>
             <div>
@@ -86,7 +86,7 @@
                 Osebni projekti
               </b-button>
             </nuxt-link>
-            <nuxt-link
+            <!-- <nuxt-link
               :to="{ path: '/cv', hash: 'knowledge' }"
               v-scroll-to="{ el: '#knowledge' }"
             >
@@ -97,11 +97,45 @@
               >
                 Znanja
               </b-button>
-            </nuxt-link>
+            </nuxt-link> -->
           </div>
         </div>
       </div>
       <div style="margin-top: 3vh"></div>
+    </div>
+
+    <div class="cv-container">
+      <!-- <CvExperienceCard
+        v-for="w of knowledge"
+        :key="w.what"
+        :year="w.year"
+        :what="w.what"
+        :where="w.where"
+        :description="w.description"
+      ></CvExperienceCard> -->
+      <div class="box">
+        <p>
+          Največ znanja imam iz razvoja spletnih (fullstack) aplikacij. Na tem
+          področju imam poleg svojih lastnih projektov (MarelaBudget, spletna
+          aplikacija v okviru diplomske naloge...) tudi približno leto dni
+          izkušenj v okviru študentskega dela. Večina apliakcij je razvita z
+          uporabo ogrodja Angular na čelnem delu in ogrodja Spring Boot na
+          zalednem delu sistema. V zadnjem času preizkušam NuxtJS za razvoj JAM
+          stack aplikacij.
+        </p>
+        <p>
+          Poleg razvoja zalednih in čelnih aplikacij imam izkušnje z uporabo
+          relacijskih baz. V lastnih projektih povečini uporablja baze MySQL,
+          MariaDB ali PostgreSQL, v okviru študentskih del pa sem razvijal na
+          bazi Oracle (vključno z indeksi, procedurami in ostalimi naprednimi
+          funkcijami).
+        </p>
+        <p style="margin: 0">
+          Obenem razvijam mobilne aplikacije (MarelaApp) v Flutter-ju, v
+          preteklosti pa tudi v ogrodju Ionic. Manjše projekte sem razvijal tudi
+          v tehnologijah kot so: Python, NestJS, bash...
+        </p>
+      </div>
     </div>
 
     <h1 id="school" class="cv-title">Izobrazba</h1>
@@ -137,111 +171,27 @@
         :what="w.project_name"
         :where="w.where"
         :description="w.description_short"
-      ></CvExperienceCard> -->¸
+      ></CvExperienceCard> -->
 
       <CvExperienceCard
         v-for="w of projects"
         :key="w.what"
         :year="w.year"
-        :what="w.what"
-        :where="w.where"
-        :description="w.description"
+        :what="w.project_name"
+        :where="w.project_subtitle"
+        :description="w.description_short"
+        :link="w.showDetailPage ? '/project/' + w.project_name : null"
       ></CvExperienceCard>
     </div>
 
-    <h1 id="knowledge" class="cv-title">Znanja</h1>
-    <div class="cv-container">
-      <!-- <CvExperienceCard
-        v-for="w of knowledge"
-        :key="w.what"
-        :year="w.year"
-        :what="w.what"
-        :where="w.where"
-        :description="w.description"
-      ></CvExperienceCard> -->
-      <div class="box">
-        <p>
-          Največ znanja imam iz razvoja spletnih (fullstack) aplikacij. Na tem
-          področju imam poleg svojih lastnih projektov (MarelaBudget, spletna
-          aplikacija v okviru diplomske naloge...) tudi približno leto dni
-          izkušenj v okviru študentskega dela. Večina apliakcij je razvita z
-          uporabo ogrodja Angular na čelnem delu in ogrodja Spring Boot na
-          zalednem delu sistema. V zadnjem času preizkušam NuxtJS za razvoj JAM
-          stack aplikacij.
-        </p>
-        <p>
-          Poleg razvoja zalednih in čelnih aplikacij imam izkušnje z uporabo
-          relacijskih baz. V lastnih projektih povečini uporablja baze MySQL,
-          MariaDB ali PostgreSQL, v okviru študentskih del pa sem razvijal na
-          bazi Oracle (vključno z indeksi, procedurami in ostalimi naprednimi
-          funkcijami).
-        </p>
-        <p style="margin: 0">
-          Obenem razvijam mobilne aplikacije (MarelaApp) v Flutter-ju, v
-          preteklosti pa tudi v ogrodju Ionic. Manjše projekte sem razvijal tudi
-          v tehnologijah kot so: Python, NestJS, bash...
-        </p>
-      </div>
-    </div>
+    <!-- <h1 id="knowledge" class="cv-title">Znanja</h1> -->
+    
   </main>
 </template>
 
 
 <script>
 import { createSEOMeta } from '/utils/seo'
-
-export const projects = [
-  {
-    year: '2021 (v razvoju)',
-    what: 'ExchangeApp',
-    where:
-      'Fullstack spletna aplikaicja (Angular, Spring Boot, MariaDB, MongoDB)',
-    description:
-      'Spletna aplikacija kreirana v okviru diplomske naloge, ki študentom omogoča izmenjevanje testnih primerov za preverjanje pravilnosti programov.',
-  },
-  {
-    year: '2020',
-    what: 'MarelaApp',
-    where: 'Flutter mobilna aplikacija, Spring Boot, MariaDB',
-    description:
-      'Mobilna aplikacija za pregled vremenskih razmer in napovedi v Sloveniji. Aplikacija pridobi podatke iz ARSO. Aplikacija je dostopna na Google Play',
-  },
-  {
-    year: '2020',
-    what: '@AppMarela Twitter bot',
-    where: 'Python',
-    description:
-      'Twitter bot, ki avtomatsko odgovarja na tvite v katerih je označen in so povezani z vremenskim stanjem v Sloveniji.',
-  },
-  {
-    year: '2020',
-    what: 'Corona Tracker',
-    where: 'AngularSPA',
-    description:
-      'Spletna storitev za pregled in analizo stanja širjenja novega koronavirusa. Projekt je odprtokoden in dostopen na GitHub-u',
-  },
-  {
-    year: '2020',
-    what: 'SimplyNote',
-    where: 'Hibridna aplikacija (Angular, Capacitor, Ionic)',
-    description:
-      'Mobilna aplikacija za shranjevanje in urejanje beležk ter zapiskov.',
-  },
-  {
-    year: '2020',
-    what: 'Rise & Shine',
-    where: 'Hibridna aplikacija (Angular, Capacitor, Ionic)',
-    description:
-      'Mobilna aplikacija za prikaz časa sončnega vzhoda in zahoda na trenutni lokaciji. Aplikacija je odprtokodna (GitHub) in na voljo na storitvi Google Play za prenos.',
-  },
-  {
-    year: '2019',
-    what: 'ATT - Automatic Testing Tool',
-    where: 'Bash skripta za avtomatsko testiranje kode',
-    description:
-      'Skripta za avtomatsko testiranje izhodnih podatkov glede na podane vhodne podatke in testne primere. Projekt je odprtokoden in na voljo na GitHub-u.',
-  },
-]
 
 export const knowledge = [
   {
@@ -299,18 +249,17 @@ export const knowledge = [
 export default {
   created() {
     this.knowledge = knowledge
-    this.projects = projects
   },
   data() {
-    return { projects: {} }
+    return {}
   },
   async asyncData({ $strapi }) {
-    // let projects = {}
+    let projects = {}
     let education = {}
     let work = {}
     try {
-      // projects = await $strapi.find('projects')
-      this.work = await this.$strapi.find('cv-works', '_sort=id:DESC')
+      projects = await $strapi.find('projects', '_sort=year:DESC')
+      work = await $strapi.find('cv-works', '_sort=id:DESC')
       education = await $strapi.find('cvs', '_sort=id:DESC')
     } catch (error) {
       console.error(error)
@@ -322,7 +271,7 @@ export default {
   },
   async mounted() {
     try {
-      // this.projects = await this.$strapi.find('projects')
+      this.projects = await this.$strapi.find('projects', '_sort=year:DESC')
       this.work = await this.$strapi.find('cv-works', '_sort=id:DESC')
       this.education = await this.$strapi.find('cvs', '_sort=id:DESC')
     } catch (error) {

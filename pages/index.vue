@@ -5,33 +5,33 @@
 
     <div class="icons">
       <a
-        href="mailto:jakob@marela.team"
+        href="mailto:jakob.marusic17@gnail.com"
         target="_blank"
         style="margin-right: 1vw"
       >
-        <b-tooltip label="jakob@marela.team" position="is-bottom">
+        <b-tooltip label="jakob.marusic17@gmail.com" position="is-bottom">
           <b-icon icon="email-outline" />
         </b-tooltip>
       </a>
-      <a href="https://facebook.com/jakmar17" target="_blank">
+      <a
+        href="https://facebook.com/jakmar17"
+        target="_blank"
+        style="margin-right: 1vw"
+      >
         <b-tooltip label="Facebook" position="is-bottom">
           <b-icon icon="facebook" />
         </b-tooltip>
       </a>
-      <a
-        href="https://github.com/jakmar17"
-        target="_blank"
-        style="margin-right: 1vw"
-      >
+      <a href="https://github.com/jakmar17" target="_blank">
         <b-tooltip label="GitHub" position="is-bottom">
           <b-icon icon="github" />
         </b-tooltip>
       </a>
-      <a href="https://marela.team" target="_blank">
+      <!-- <a href="https://marela.team" target="_blank">
         <b-tooltip label="MarelaTeam" position="is-bottom">
           <b-icon icon="umbrella" />
         </b-tooltip>
-      </a>
+      </a> -->
       <div style="margin-top: 2vh">
         <nuxt-link to="/blog" style="margin-right: 2vw">
           <b-icon icon="file-document-edit-outline" />
@@ -172,7 +172,6 @@
 <script>
 import { createSEOMeta } from '/utils/seo'
 
-
 export default {
   data() {
     return { projects: {} }
@@ -196,7 +195,7 @@ export default {
   },
   head() {
     return {
-      title: "Jakobov spletni domek",
+      title: 'Jakobov spletni domek',
       meta: [
         ...createSEOMeta({
           title: 'Jakobov spletni domek',
