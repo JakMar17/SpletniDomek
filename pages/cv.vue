@@ -1,9 +1,5 @@
 <template>
-  <main class="container" style="padding: 2vh 1vw 4vh 1vw">
-    <nuxt-link to="/">
-      <b-icon icon="arrow-left"></b-icon>
-    </nuxt-link>
-
+  <main class="container" style="padding: 0vh 1vw 4vh 1vw">
     <div style="padding: 3vh 5vw 0 5vw">
       <div class="has-text-centered" style="margin-bottom: 3vh">
         <h1 class="title is-3">Jakob Marušič</h1>
@@ -52,7 +48,6 @@
             <h2 class="subtitle is-4 has-text-centered">Življenjepis</h2>
             <nuxt-link
               :to="{ path: '/cv', hash: 'school' }"
-              v-scroll-to="{ el: '#school' }"
             >
               <b-button
                 class="is-fullwidth"
@@ -64,7 +59,6 @@
             </nuxt-link>
             <nuxt-link
               :to="{ path: '/cv', hash: 'work' }"
-              v-scroll-to="{ el: '#work' }"
             >
               <b-button
                 class="is-fullwidth"
@@ -76,7 +70,6 @@
             </nuxt-link>
             <nuxt-link
               :to="{ path: '/cv', hash: 'projects' }"
-              v-scroll-to="{ el: '#projects' }"
             >
               <b-button
                 class="is-fullwidth"
@@ -88,7 +81,6 @@
             </nuxt-link>
             <!-- <nuxt-link
               :to="{ path: '/cv', hash: 'knowledge' }"
-              v-scroll-to="{ el: '#knowledge' }"
             >
               <b-button
                 class="is-fullwidth"
@@ -265,8 +257,6 @@ export default {
       console.error(error)
     }
 
-    console.log(work)
-
     return { projects, education, work }
   },
   async mounted() {
@@ -277,8 +267,6 @@ export default {
     } catch (error) {
       console.error(error)
     }
-
-    console.log(this.work)
   },
   head() {
     return {

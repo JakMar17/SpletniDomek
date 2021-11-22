@@ -1,15 +1,5 @@
 <template>
-  <main class="container" style="padding-top: 2vh">
-    <div class="columns is-vcentered">
-      <div class="column">
-        <nuxt-link to="/">
-          <b-icon icon="arrow-left"></b-icon>
-        </nuxt-link>
-      </div>
-      <div class="column"></div>
-      <div class="column is-narrow"></div>
-    </div>
-
+  <main class="container">
     <div style="padding: 3vh 5vw 2vh 5vw">
       <div class="has-text-centered" style="margin-bottom: 3vh">
         <h1 class="title is-3">{{ project.project_name }}</h1>
@@ -143,7 +133,7 @@ export default {
   },
   async mounted() {
     try {
-      const resp = await this.$strapi.find('projects', 'project_name=' + slug)
+      const resp = await this.$strapi.find('projects', 'project_name=' + this.slug)
       this.project = resp[0]
     } catch (error) {
       console.error(error)

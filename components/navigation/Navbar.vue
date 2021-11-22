@@ -1,29 +1,37 @@
 <template>
-  <nav style="background-color: #f4f4f4;" class="level navbar has-background-transparent">
-<!--     <p class="level-item has-text-centered">
-      <nuxt-link to="/zahteve" class="link is-info">Zahteve</nuxt-link>
-    </p>
-    <p class="level-item has-text-centered">
-      <nuxt-link to="/izkusnje" class="link is-info">Izkušnje</nuxt-link>
-    </p> -->
-    <p class="level-item has-text-centered">
+  <nav class="navbar" role="navigation" style="background-color: #F4F4F4; height: 64px" aria-label="main navigation">
+  <div class="navbar-brand">
+    <div class="level-item has-text-centered">
       <nuxt-link to="/" class="navbar-item">
         <img
           class="is-centered image"
+          style="height: 64px"
           src="~assets/images/avatar_cropped.png"
         />
-        <p style="margin-left: 1vw">Jakob</p>
+        <div style="margin-left: 1vw">
+          <div class="has-text-black has-text-weight-bold">
+            Jakobov spletni domek
+          </div>
+        </div>
       </nuxt-link>
-    </p>
-<!--     <p class="level-item has-text-centered">
-      <nuxt-link to="/nasvidenje-mi-smo-sdl-2021" class="link is-info"
-        >Blog</nuxt-link
-      >
-    </p>
-    <p class="level-item has-text-centered">
-      <nuxt-link to="/kontakt">Kontakt</nuxt-link>
-    </p> -->
-  </nav>
+    </div>
+  </div>
+
+  <div class="navbar-menu">
+        <div class="navbar-end">
+      <div class="navbar-item">
+        <NuxtLink to="/cv" class="navbar-item has-text-black">
+        Življenjepis
+      </NuxtLink>
+      </div>
+      <div class="navbar-item">
+        <NuxtLink to="/blog" class="navbar-item has-text-black">
+        Blog
+      </NuxtLink>
+      </div>
+    </div>
+  </div>
+</nav>
 </template>
 
 <script>

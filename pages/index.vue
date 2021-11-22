@@ -173,6 +173,7 @@
 import { createSEOMeta } from '/utils/seo'
 
 export default {
+  layout: 'nonavbar',
   data() {
     return { projects: {} }
   },

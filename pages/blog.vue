@@ -1,30 +1,5 @@
 <template>
   <main class="container" style="padding-top: 2vh">
-    <div class="columns is-vcentered">
-      <div class="column">
-        <nuxt-link to="/">
-          <b-icon icon="arrow-left"></b-icon>
-        </nuxt-link>
-      </div>
-      <div class="column"></div>
-      <div class="column is-narrow">
-        <!-- <div
-          v-if="!showSearchbar"
-          @click="toggleSearchBar"
-          class="is-clickable is-link"
-        >
-          <b-icon icon="magnify"></b-icon>
-        </div>
-        <input
-          v-if="showSearchbar"
-          class="input is-small"
-          type="text"
-          placeholder="Iskanje"
-          v-model="searchInput"
-        /> -->
-      </div>
-    </div>
-
     <div style="padding: 3vh 5vw 2vh 5vw">
       <div class="has-text-centered" style="margin-bottom: 3vh">
         <h1 class="title is-3">Blog</h1>
