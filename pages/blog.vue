@@ -27,6 +27,7 @@ export default {
   mounted() {
     getPosts().then((data) => {
       this.posts = data
+      this.posts.forEach(e => e.feature_image.replaceAll('http://ghost', 'https://ghost'))
     })
   },
   methods: {

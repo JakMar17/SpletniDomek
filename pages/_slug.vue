@@ -46,6 +46,7 @@ export default {
   mounted() {
     getSinglePost(this.post.slug).then((data) => {
       this.post = data
+      this.post.feature_image = this.post.feature_image.replaceAll('http://ghost', 'https://ghost')
       this.post.html = this.post.html.replaceAll(
         'http://ghost',
         'https://ghost'
