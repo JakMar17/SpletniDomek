@@ -83,6 +83,7 @@ export default {
     preset: 'default',
     linkify: true,
     breaks: true,
+    injected: true
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
