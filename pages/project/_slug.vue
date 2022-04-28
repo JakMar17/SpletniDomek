@@ -50,8 +50,8 @@
     </div>
 
     <div class="container" style="padding: 5vh 0 5vh 0">
-      <div class="columns">
-        <div class="column is-4">
+      <div class="columns is-multiline">
+        <div class="column is-5-desktop is-4-widescreen is-12-tablet">
           <div class="box h-100">
             <table class="table">
               <tbody>

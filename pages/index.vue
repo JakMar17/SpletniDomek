@@ -86,7 +86,7 @@
     <hr />
     <div class="container" style="padding-bottom: 8vh">
       <div class="columns is-centered is-vcentered is-multiline">
-        <div v-for="(item, i) of projects" :key="i" class="column is-4">
+        <div v-for="(item, i) of projects" :key="i" class="column is-flex is-4">
           <nuxt-link :to="'project/' + item.project_name" class="box h-100">
             <div class="columns">
               <div class="column">
@@ -105,6 +105,18 @@
             </p>
           </nuxt-link>
         </div>
+      </div>
+      <div class="container" style="margin-top: 2vh">
+        <NuxtLink
+          :to="{ name: 'cv', query: { tab: 'projects' }}"
+          class="columns is-flex is-vcentered"
+        >
+          <dic class="column"></dic>
+          <dic class="column is-narrow is-flex is-vcentered">
+            <span> Vsi projekti </span>
+            <b-icon icon="chevron-right"> </b-icon>
+          </dic>
+        </NuxtLink>
       </div>
     </div>
 

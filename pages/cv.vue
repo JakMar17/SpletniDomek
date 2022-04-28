@@ -1,95 +1,29 @@
 <template>
   <main class="container" style="padding: 0vh 1vw 4vh 1vw">
     <div style="padding: 3vh 5vw 0 5vw">
-      <div class="has-text-centered" style="margin-bottom: 3vh">
-        <h1 class="title is-3">Jakob Marušič</h1>
-        <h2 class="subtitle is-5">dipl. inž. rač. in inf. (UN)</h2>
-      </div>
-
-      <div class="columns">
-        <div class="column">
-          <div class="box" style="height: 100%">
-            <h2 class="subtitle is-4 has-text-centered">Kontakt</h2>
-            <div>
-              <a
-                href="mailto:jakob.marusic17@gmail.com"
-                target="_blank"
-                style="margin-right: 1vw"
-              >
-                <b-icon icon="email-outline" style="margin-right: 1vw" />
-                jakob.marusic17 {at} gmail.com
-              </a>
-            </div>
-            <div>
-              <a href="https://facebook.com/jakmar17" target="_blank">
-                <b-icon icon="facebook" style="margin-right: 1vw" />
-                Facebook
-              </a>
-            </div>
-            <div>
-              <a href="https://github.com/jakmar17" target="_blank">
-                <b-icon icon="github" style="margin-right: 1vw" />
-                GitHub
-              </a>
-            </div>
-            <!-- <div>
-              <a
-                href="https://www.linkedin.com/in/jakob-maru%C5%A1i%C4%8D-2060461b4/"
-                target="_blank"
-              >
-                <b-icon icon="linkedin" style="margin-right: 1vw" />
-                LinkedIn
-              </a>
-            </div> -->
-          </div>
+      <div>
+        <div class="has-text-centered" style="margin-bottom: 3vh">
+          <h1 class="title is-3">Jakob Marušič</h1>
+          <h2 class="subtitle is-5">dipl. inž. rač. in inf. (UN)</h2>
         </div>
-        <div class="column">
-          <div class="box">
-            <h2 class="subtitle is-4 has-text-centered">Življenjepis</h2>
-            <nuxt-link
-              :to="{ path: '/cv', hash: 'school' }"
-            >
-              <b-button
-                class="is-fullwidth"
-                icon-left="school-outline"
-                size="is-small"
-              >
-                Izobrazba
-              </b-button>
-            </nuxt-link>
-            <nuxt-link
-              :to="{ path: '/cv', hash: 'work' }"
-            >
-              <b-button
-                class="is-fullwidth"
-                icon-left="briefcase-outline"
-                size="is-small"
-              >
-                Delovne izkušnje
-              </b-button>
-            </nuxt-link>
-            <nuxt-link
-              :to="{ path: '/cv', hash: 'projects' }"
-            >
-              <b-button
-                class="is-fullwidth"
-                icon-left="server-network"
-                size="is-small"
-              >
-                Osebni projekti
-              </b-button>
-            </nuxt-link>
-            <!-- <nuxt-link
-              :to="{ path: '/cv', hash: 'knowledge' }"
-            >
-              <b-button
-                class="is-fullwidth"
-                icon-left="apple-safari"
-                size="is-small"
-              >
-                Znanja
-              </b-button>
-            </nuxt-link> -->
+        <div class="has-text-centered columns">
+          <div class="column">
+            <a href="mailto:jakob.marusic17@gmail.com" target="_blank">
+              <b-icon icon="email-outline" style="margin-right: 1vw" />
+              jakob.marusic17 {at} gmail.com
+            </a>
+          </div>
+          <div class="column">
+            <a href="https://facebook.com/jakmar17" target="_blank">
+              <b-icon icon="facebook" style="margin-right: 1vw" />
+              Facebook
+            </a>
+          </div>
+          <div class="column">
+            <a href="https://github.com/jakmar17" target="_blank">
+              <b-icon icon="github" style="margin-right: 1vw" />
+              GitHub
+            </a>
           </div>
         </div>
       </div>
@@ -97,14 +31,6 @@
     </div>
 
     <div class="cv-container">
-      <!-- <CvExperienceCard
-        v-for="w of knowledge"
-        :key="w.what"
-        :year="w.year"
-        :what="w.what"
-        :where="w.where"
-        :description="w.description"
-      ></CvExperienceCard> -->
       <div class="box">
         <p>
           Največ znanja imam iz razvoja spletnih (fullstack) aplikacij. Na tem
@@ -130,57 +56,89 @@
       </div>
     </div>
 
-    <h1 id="school" class="cv-title">Izobrazba</h1>
-    <div class="cv-container">
-      <CvExperienceCard
-        v-for="s of education"
-        :key="s.title"
-        :year="s.startDate + ' - ' + s.endDate"
-        :what="s.title"
-        :where="s.subtitle"
-        :description="s.description"
-      ></CvExperienceCard>
+    <!-- <div class="box"> -->
+    <div>
+      <b-tabs
+        v-model="activeTab"
+        position="is-centered"
+        class="block"
+        style="padding-top: 3vh"
+      >
+        <b-tab-item label="Izobrazba" icon="school-outline">
+          <div class="cv-container">
+            <CvExperienceCard
+              v-for="s of education"
+              :key="s.title"
+              :year="s.startDate + ' - ' + s.endDate"
+              :what="s.title"
+              :where="s.subtitle"
+              :description="s.description"
+            ></CvExperienceCard>
+          </div>
+        </b-tab-item>
+        <b-tab-item label="Delovne izkušnje" icon="briefcase-outline">
+          <div class="cv-container">
+            <CvExperienceCard
+              v-for="w of work"
+              :key="w.title"
+              :year="w.date"
+              :what="w.title"
+              :where="w.company"
+              :description="w.description"
+            ></CvExperienceCard>
+          </div>
+        </b-tab-item>
+        <b-tab-item label="Osebni projekti" icon="laptop">
+          <div class="cv-container">
+            <div class="columns is-multiline is-tablet">
+              <div
+                class="column is-4 is-flex"
+                v-for="w of projects"
+                :key="w.what"
+              >
+                <CardImage
+                  :year="w.year"
+                  :what="w.project_name"
+                  :where="w.project_subtitle"
+                  :description="w.description_short"
+                  :pics="w.pics"
+                  :link="w.showDetailPage ? '/project/' + w.project_name : null"
+                ></CardImage>
+              </div>
+            </div>
+            <!-- <CvExperienceCard
+              v-for="w of projects"
+              :key="w.what"
+              :year="w.year"
+              :what="w.project_name"
+              :where="w.project_subtitle"
+              :description="w.description_short"
+              :link="w.showDetailPage ? '/project/' + w.project_name : null"
+            ></CvExperienceCard> -->
+          </div>
+        </b-tab-item>
+      </b-tabs>
     </div>
 
-    <h1 id="work" class="cv-title">Delovne izkušnje</h1>
-    <div class="cv-container">
-      <CvExperienceCard
-        v-for="w of work"
-        :key="w.title"
-        :year="w.date"
-        :what="w.title"
-        :where="w.company"
-        :description="w.description"
-      ></CvExperienceCard>
-    </div>
-
-    <h1 id="projects" class="cv-title">Osebni projekti</h1>
-    <div class="cv-container">
-      <!-- <CvExperienceCard
-        v-for="w of projects"
-        :key="w.id"
-        :year="w.year"
-        :what="w.project_name"
-        :where="w.where"
-        :description="w.description_short"
-      ></CvExperienceCard> -->
-
-      <CvExperienceCard
-        v-for="w of projects"
-        :key="w.what"
-        :year="w.year"
-        :what="w.project_name"
-        :where="w.project_subtitle"
-        :description="w.description_short"
-        :link="w.showDetailPage ? '/project/' + w.project_name : null"
-      ></CvExperienceCard>
-    </div>
-
-    <!-- <h1 id="knowledge" class="cv-title">Znanja</h1> -->
-    
+    <!-- <ul class="card-wrapper">
+  <li class="card">
+    <img src='https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
+    <h3><a href="">A Super Wonderful Headline</a></h3>
+    <p>Lovh ipsum sit dolor amit</p>
+  </li>
+  <li class="card">
+    <img src='https://images.unsplash.com/photo-1611083360739-bdad6e0eb1fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
+    <h3><a href="">What a Fantabulous Title!</a></h3>
+    <p>Lovh ipsum sit dolor amit</p>
+  </li>
+  <li class="card">
+    <img src='https://images.unsplash.com/photo-1613230485186-2e7e0fca1253?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
+    <h3><a href="">Positively Terrific Title</a></h3>
+    <p>Lovh ipsum sit dolor amit</p>
+  </li>
+</ul> -->
   </main>
 </template>
-
 
 <script>
 import { createSEOMeta } from '/utils/seo'
@@ -241,9 +199,15 @@ export const knowledge = [
 export default {
   created() {
     this.knowledge = knowledge
+    const tab = this.$route.query?.tab
+    if(tab != null && tab === 'projects') {
+      this.activeTab = 2
+    }
   },
   data() {
-    return {}
+    return {
+      activeTab: 0,
+    }
   },
   async asyncData({ $strapi }) {
     let projects = {}

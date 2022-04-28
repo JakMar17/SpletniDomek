@@ -20,7 +20,7 @@ export default {
         name: 'description',
         content:
           'Osebna stran študenta računalništva, ki se s programiranjem ukvarja 25 ur na dan',
-      }
+      },
     ],
     link: [
       { rel: 'stylesheet', href: 'https://unpkg.com/aos@next/dist/aos.css' },
@@ -34,10 +34,10 @@ export default {
     script: [
       {
         defer: true,
-        src: "https://plausible.sven.marela.team/js/plausible.js",
-        "data-domain": "jakob.marela.team"
-      }
-    ]
+        src: 'https://plausible.sven.marela.team/js/plausible.js',
+        'data-domain': 'jakob.marela.team',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -75,7 +75,7 @@ export default {
 
   strapi: {
     entities: ['Projects'],
-    url: process.env.STRAPI_URL,
+    url: process.env.STRAPI_URL || 'https://strapi.sven.marela.team',
   },
 
   markdownit: {
@@ -83,7 +83,7 @@ export default {
     preset: 'default',
     linkify: true,
     breaks: true,
-    injected: true
+    injected: true,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -96,21 +96,21 @@ export default {
     id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
-    ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
-    ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
-    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/',
+    ghostUrl: 'https://ghost.sven.marela.team/',
+    ghostKey: 'e2dcedf9073da92a9021ecafdc',
+    strapiUrl: 'https://strapi.sven.marela.team',
     googleAnalytics: {
       id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID,
     },
   },
   privateRuntimeConfig: {
-    ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
-    ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
-    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337/',
+    ghostUrl: 'https://ghost.sven.marela.team/',
+    ghostKey: 'e2dcedf9073da92a9021ecafdc',
+    strapiUrl: 'https://strapi.sven.marela.team',
   },
   env: {
-    ghostUrl: process.env.GHOST_URL || 'http://10.10.10.100:4000',
-    ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
-    strapiUrl: process.env.STRAPI_URL || 'https://10.10.10.100:1337',
+    ghostUrl: 'https://ghost.sven.marela.team/',
+    ghostKey: 'e2dcedf9073da92a9021ecafdc',
+    strapiUrl: 'https://strapi.sven.marela.team',
   },
 }
