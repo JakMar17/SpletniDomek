@@ -105,12 +105,12 @@ export default {
   },
   privateRuntimeConfig: {
     ghostUrl: 'https://ghost.sven.marela.team',
-    ghostKey: 'e2dcedf9073da92a9021ecafdc',
+    ghostKey: process.env.GHOST_KEY || 'e2dcedf9073da92a9021ecafdc',
     strapiUrl: 'https://strapi.sven.marela.team',
   },
   env: {
     ghostUrl: 'https://ghost.sven.marela.team',
-    ghostKey: 'e2dcedf9073da92a9021ecafdc',
+    ghostKey: process.env.GHOST_KEY  || 'e2dcedf9073da92a9021ecafdc',
     strapiUrl: 'https://strapi.sven.marela.team',
   },
 }
