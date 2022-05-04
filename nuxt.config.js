@@ -96,7 +96,7 @@ export default {
     id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
-    ghostUrl: 'https://ghost.sven.marela.team/',
+    ghostUrl: 'https://ghost.sven.marela.team',
     ghostKey: 'e2dcedf9073da92a9021ecafdc',
     strapiUrl: 'https://strapi.sven.marela.team',
     googleAnalytics: {
@@ -104,12 +104,12 @@ export default {
     },
   },
   privateRuntimeConfig: {
-    ghostUrl: 'https://ghost.sven.marela.team/',
+    ghostUrl: 'https://ghost.sven.marela.team',
     ghostKey: 'e2dcedf9073da92a9021ecafdc',
     strapiUrl: 'https://strapi.sven.marela.team',
   },
   env: {
-    ghostUrl: 'https://ghost.sven.marela.team/',
+    ghostUrl: 'https://ghost.sven.marela.team',
     ghostKey: 'e2dcedf9073da92a9021ecafdc',
     strapiUrl: 'https://strapi.sven.marela.team',
   },
