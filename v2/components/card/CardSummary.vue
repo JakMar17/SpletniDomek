@@ -42,7 +42,7 @@ export default {
 @import '@/assets/styles/underline.scss';
 
 .mcard {
-  @extend .glass;
+  @extend .glass, .has-radius-border, .is-hoverable;
   color: white;
   padding: 1rem;
 

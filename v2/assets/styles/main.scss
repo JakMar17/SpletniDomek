@@ -50,6 +50,12 @@ body {
     min-height: 100vh;
 }
 
+.background {
+    background: url('@/assets/images/svgs/background.svg') no-repeat fixed center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
 .h-100 {
     height: 100% !important;
 }

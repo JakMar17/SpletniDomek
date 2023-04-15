@@ -4,14 +4,19 @@
     $blur: 20px;
 
     background: rgba($info, 0.2);
-    border-radius: 1rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur($blur);
     -webkit-backdrop-filter: blur($blur);
+}
 
+.is-hoverable {
     transition: background-color 500ms;
 
     &:hover {
         background: rgba($info, 0.3);
     }
+}
+
+.has-radius-border {
+    border-radius: 1rem;
 }

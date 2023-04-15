@@ -117,7 +117,7 @@ export default {
 }
 
 .glass_card {
-  @extend .box, .glass;
+  @extend .box, .glass, .has-radius-border, .is-hoverable;
   font-family: 'Lato';
   color: white;
 

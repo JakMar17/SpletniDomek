@@ -1,6 +1,7 @@
 <template>
+  <NavigationMenu style="z-index: 100" ref="navMenu" v-if="showMenu" class="animate__animated animate__fadeInDown"></NavigationMenu>
   <div class="wrapper">
-    <NavigationMenuButton class="is-hidden-touch"/>
+    <NavigationMenuButton @click="toggleMenu" class="is-hidden-touch"/>
     <div class="main_content__wrapper">
       <h1 class="main_content__title">Jaz, Jakob</h1>
       <main class="columns">
@@ -32,7 +33,6 @@
             <LinkInternalUnderline label="Občinski svet Občine Miren-Kostanjevica in KS Opatje selo"/>
             <LinkInternalUnderline label="Študentski svet stanovalcev ŠDL"/>
           </CardSummary>
-
         </div>
       </main>
     </div>
@@ -89,7 +89,34 @@ main {
 
 </style>
 
-<script setup lang="ts">
+<script>
 import CardSummary from "~/components/card/CardSummary.vue";
 import LinkInternalUnderline from "~/components/link/LinkInternalUnderline.vue";
-import NavigationMenuButton from "~/components/navigation/NavigationMenuButton.vue";</script>
+import NavigationMenuButton from "~/components/navigation/NavigationMenuButton.vue";
+
+export default {
+  components: {
+    CardSummary,
+    LinkInternalUnderline,
+    NavigationMenuButton
+  },
+  data() {
+    return {
+      showMenu: false
+    }
+  },
+  methods: {
+    toggleMenu() {
+      if (this.showMenu) {
+        this.$refs.navMenu.$el.classList.add('animate__fadeOutUp');
+        this.$refs.navMenu.$el.addEventListener('animationend', () => {
+          this.showMenu = !this.showMenu;
+        });
+      } else {
+          this.showMenu = !this.showMenu;
+      }
+    }
+  }
+}
+
+</script>
