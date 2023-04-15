@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Navigation-Navbar />
+<!--    <Navigation-Navbar />-->
     <slot />
-    <Navigation-Footer />
+<!--    <Navigation-Footer />-->
   </div>
 </template>

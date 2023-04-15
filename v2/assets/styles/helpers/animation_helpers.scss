@@ -1,0 +1,37 @@
+.animation {
+    &__delay {
+        &--200 {
+            animation-delay: 200ms;
+        }
+        &--400 {
+            animation-delay: 400ms;
+        }
+        &--600 {
+            animation-delay: 600ms;
+        }
+        &--800 {
+            animation-delay: 800ms;
+        }
+        &--1000 {
+            animation-delay: 1000ms;
+        }
+    }
+
+    &__duration {
+        &--200 {
+            animation-duration: 200ms;
+        }
+        &--400 {
+            animation-duration: 400ms;
+        }
+        &--600 {
+            animation-duration: 600ms;
+        }
+        &--800 {
+            animation-duration: 800ms;
+        }
+        &--1000 {
+            animation-duration: 1000ms;
+        }
+    }
+}
